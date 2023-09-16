@@ -3,11 +3,14 @@ import bodyParser from "body-parser";
 import route1 from "./travelPlan/route.js";
 import Connection from "./database/db.js";
 import dotenv from "dotenv";
+import cors from "cors";
 dotenv.config();
 
 const app = express();
 app.use(bodyParser.json({extended:true}));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
+
 
 app.use("/travelPlan", route1);
 
